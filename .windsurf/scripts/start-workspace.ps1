@@ -34,7 +34,7 @@ foreach ($dir in $criticalDirs) {
 Write-Host "[start-workspace] Structure de répertoires locale synchronisée."
 
 # --- REDIRECTION PAR JONCTION (ISOLATION ROBUSTE) ---
-$JunctionPoint = "F:\Sqlite-DB\current_workspace"
+$JunctionPoint = "$env:HEPHAISTOS_DATA_DIR\current_workspace"
 $CacheJunction = Join-Path $ProjectRoot "semantic-cache-data"
 
 Write-Host "[start-workspace] Mise à jour des points de montage Junction..."
