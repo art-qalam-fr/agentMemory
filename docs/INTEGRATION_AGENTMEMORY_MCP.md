@@ -12,7 +12,7 @@ summary: Compatibilité de l’extension agentMemory avec l’infrastructure MCP
 ## 2. Points de compatibilité
 - **Double serveur agentMemory** :
   - L’extension lance son serveur MCP bundlé (paramètres: `projectId = basename(workspace)` + `workspacePath`).
-  - Le fichier mcp_config.json lance aussi `F:/Promgramation-teste/agentMemory/out/mcp-server/server.js` avec `${workspaceBasename}`, `${workspace}`.
+  - Le fichier mcp_config.json lance aussi `<HEPHAISTOS_ROOT> avec `${workspaceBasename}`, `${workspace}`.
   - Conclusion : OK mais redondant. Garder un seul chemin de démarrage pour éviter des conflits de ports/logs.
 
 - **Cache / memory / sqlite-node** :
