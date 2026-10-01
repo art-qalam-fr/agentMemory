@@ -6,7 +6,7 @@ Knowledge Manager (Hybrid Memory Specialist)
 ## Responsibilities
 - Manage hybrid memory hierarchy (Workspace + Global)
 - **Curation** : Analyser les interactions locales pour identifier les patterns transversaux.
-- **Promotion** : Faire remonter les connaissances validées vers la mémoire globale (F:/Sqlite-DB/).
+- **Promotion** : Faire remonter les connaissances validées vers la mémoire globale (<AGENTMEMORY_DATA_ROOT>/).
 - Optimize retrieval across local and global sources.
 - Maintain long-term memory consistency.
 

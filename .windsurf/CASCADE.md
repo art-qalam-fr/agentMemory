@@ -36,7 +36,7 @@ Le dossier `scripts/` assure la synchronisation et le monitoring du système :
 - **ingestion.config.json** : Configuration spécifique au projet pour l'ingestion.
 - **start-system.bat** : Point d'entrée unique (Monitor port 3055 + Ingestion + Memory Bridge).
 - **monitor.js** : Dashboard de monitoring système (Port 3055).
-- **memory-bridge.js** : Pont intelligent pour synchronisation vers le stockage unifié F:/.
+- **memory-bridge.js** : Pont intelligent pour synchronisation vers le stockage unifié <USER_DATA_DIR>
 
 ### État Actif
 

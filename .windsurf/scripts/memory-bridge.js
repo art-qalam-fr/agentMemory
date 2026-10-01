@@ -9,7 +9,7 @@ class MemoryBridge {
     constructor() {
         this.projectRoot = process.cwd();
         this.projectId = path.basename(this.projectRoot);
-        this.unifiedBase = 'F:/Sqlite-DB/current_workspace';
+        this.unifiedBase = '<AGENTMEMORY_DATA_ROOT>/current_workspace';
     }
 
     /**
@@ -40,7 +40,7 @@ class MemoryBridge {
     }
 
     /**
-     * Vérifie la cohérence entre les DB locales (.windsurf/memory-database) et globales (F:/)
+     * Vérifie la cohérence entre les DB locales (.windsurf/memory-database) et globales (stockage global)
      */
     async checkDatabaseConsistency() {
         const globalDbDir = path.join(this.unifiedBase, this.projectId);
