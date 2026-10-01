@@ -17,3 +17,13 @@ Thumbs.db
 # IDE
 .idea/
 *.sublime-*
+
+# snapshot kit
+.env
+.env.*
+!.env.example
+semantic-cache-data/
+.windsurf/memory-database/
+.windsurf/agents-runtime/
+*.db
+*.sqlite

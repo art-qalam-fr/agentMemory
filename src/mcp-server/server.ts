@@ -6,6 +6,7 @@ import { MCPTools } from './tools';
 import { SocketBridge } from './socket-bridge';
 import { MemoryBankSync } from './memory-bank-sync';
 import { StandaloneDashboard } from '../standalone-dashboard';
+import * as path from 'path';
 
 interface MCPRequest {
     jsonrpc: string;
@@ -39,8 +40,15 @@ class MCPServer {
     constructor(projectId: string, workspacePath: string) {
         this.projectId = projectId;
 
-        // Use absolute path based on workspace
-        const storagePath = workspacePath + '/.agentMemory';
+        // Dynamic storage selection
+        // 1) Explicit override via env
+        // 2) F:/Sqlite-DB/current_workspace/<projectId>/agentmemory (ingestion mapping)
+        // 3) Fallback: workspace-local .agentMemory
+        const unifiedBase = 'F:/Sqlite-DB/current_workspace';
+        const storagePath = process.env.AGENTMEMORY_STORAGE_PATH
+            || process.env.MCP_STORAGE_PATH
+            || path.join(unifiedBase, projectId, 'agentmemory')
+            || (workspacePath + '/.agentMemory');
         this.storage = new StorageManager(storagePath);
 
         this.cache = new CacheManager({
