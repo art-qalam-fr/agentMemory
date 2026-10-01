@@ -10,8 +10,8 @@ Ce dossier contient la documentation complète du projet **agentMemory** - un sy
 | [FONCTIONNEMENT.md](FONCTIONNEMENT.md) | Détails techniques et flux de données |
 | [FEATURES.md](FEATURES.md) | Fonctionnalités actuelles et futures |
 | [INTEGRATION_MCP.md](INTEGRATION_MCP.md) | Guide d'intégration MCP |
-| [IDE_COMPATIBILITE.md](IDE_COMPATIBILITE.md) | Compatibilité avec les IDE (Windsurf, Codeium, etc.) |
-| [WINDSURF_CASCADE.md](WINDSURF_CASCADE.md) | Configuration Windsurf/Cascade |
+| [IDE_COMPATIBILITE.md](IDE_COMPATIBILITE.md) | Compatibilité avec les IDE (Devin, Codeium, etc.) |
+| [DEVIN_CASCADE.md](DEVIN_CASCADE.md) | Configuration Devin/Cascade |
 | [ANTIGRAVITY.md](ANTIGRAVITY.md) | Intégration avec le système Antigravity |
 
 ## Accès Rapide
@@ -28,8 +28,8 @@ Ce dossier contient la documentation complète du projet **agentMemory** - un sy
 ### Pour l'Intégration MCP
 → **[INTEGRATION_MCP.md](INTEGRATION_MCP.md)** - Configuration MCP serveur
 
-### Pour Windsurf/Codeium/Cascade
-→ **[IDE_COMPATIBILITE.md](IDE_COMPATIBILITE.md)** et **[WINDSURF_CASCADE.md](WINDSURF_CASCADE.md)**
+### Pour Devin/Codeium/Cascade
+→ **[IDE_COMPATIBILITE.md](IDE_COMPATIBILITE.md)** et **[DEVIN_CASCADE.md](DEVIN_CASCADE.md)**
 
 ---
 
@@ -64,7 +64,7 @@ Les memory banks natifs sont :
 | **KiloCode** | `kilocode.kilo-code` | ✅ Support complet |
 | **Cline** | `saoudrizwan.claude-dev` | ✅ Support complet |
 | **RooCode** | `rooveterinaryinc.roo-cline` | ✅ Support complet |
-| **Windsurf** (Codeium) | `codeium.windsurf` | ✅ Via MCP |
+| **Devin** (Codeium) | `codeium.devin` | ✅ Via MCP |
 | **Trae** | N/A | ✅ Via configuration MCP |
 | **Cursor** | N/A | ⚠️ En évaluation |
 

@@ -13,10 +13,10 @@ class MemoryBridge {
     }
 
     /**
-     * Synchronise le scan local (.windsurf/scripts/ingestion.log) vers agentMemory
+     * Synchronise le scan local (.devin/scripts/ingestion.log) vers agentMemory
      */
     async syncIngestionToMCP() {
-        const logPath = path.join(this.projectRoot, '.windsurf', 'scripts', 'ingestion.log');
+        const logPath = path.join(this.projectRoot, '.devin', 'scripts', 'ingestion.log');
         if (!fs.existsSync(logPath)) {
             console.error('❌ Fichier ingestion.log non trouvé.');
             return;
@@ -40,7 +40,7 @@ class MemoryBridge {
     }
 
     /**
-     * Vérifie la cohérence entre les DB locales (.windsurf/memory-database) et globales (stockage global)
+     * Vérifie la cohérence entre les DB locales (.devin/memory-database) et globales (stockage global)
      */
     async checkDatabaseConsistency() {
         const globalDbDir = path.join(this.unifiedBase, this.projectId);

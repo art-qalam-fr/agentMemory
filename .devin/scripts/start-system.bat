@@ -5,15 +5,15 @@ echo Port: 3055
 echo.
 
 REM Lancer le monitor en arrière-plan
-start "CASCADE Monitor" /B node .windsurf/scripts/monitor.js
+start "CASCADE Monitor" /B node .devin/scripts/monitor.js
 
 REM Lancer l'ingestion automatique (PowerShell)
 echo 🔍 Starting Auto-Ingestion...
-start "CASCADE Ingestion" /B powershell -ExecutionPolicy Bypass -File .windsurf/scripts/auto-ingest.ps1 -Mode auto
+start "CASCADE Ingestion" /B powershell -ExecutionPolicy Bypass -File .devin/scripts/auto-ingest.ps1 -Mode auto
 
 REM Lancer le Memory Bridge (Synchronisation unifiée)
 echo 🌉 Starting Memory Bridge...
-start "Memory Bridge" /B node .windsurf/scripts/memory-bridge.js
+start "Memory Bridge" /B node .devin/scripts/memory-bridge.js
 
 echo.
 echo ✅ System is running.

@@ -58,11 +58,11 @@ Write-Host "[start-workspace] Nettoyage et création du tunnel Cache..."
 if (Test-Path $CacheJunctionAtRoot) {
     Write-Host "  [!] Libération du verrou sur $CacheJunctionAtRoot..."
     # Tenter de tuer les processus node qui pourraient verrouiller la DB
-    # EXCLUSION : On ne tue JAMAIS les processus dont le nom contient "Windsurf" ou "Code"
+    # EXCLUSION : On ne tue JAMAIS les processus dont le nom contient "Devin" ou "Code"
     $lockingProcs = Get-Process -ErrorAction SilentlyContinue | Where-Object { 
         try {
             $isNode = $_.Name -eq "node" -or $_.Path -like "*node.exe*"
-            $isNotIDE = $_.Path -notlike "*Windsurf*" -and $_.Path -notlike "*Code*" -and $_.CommandLine -notlike "*Windsurf*"
+            $isNotIDE = $_.Path -notlike "*Devin*" -and $_.Path -notlike "*Code*" -and $_.CommandLine -notlike "*Devin*"
             
             if ($isNode -and $isNotIDE) {
                 $_.CommandLine -like "*cache*" -or 

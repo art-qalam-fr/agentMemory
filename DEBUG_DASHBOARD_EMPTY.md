@@ -52,7 +52,7 @@ fetch('http://localhost:3333/api/analytics')
 
 Check the VS Code Output panel for:
 ```
-[DashboardServer] Reading from: /Users/amitrathiesh/Projects/agentMemory/mcp-data/agentMemory
+[DashboardServer] Reading from: ~/Projects/agentMemory/mcp-data/agentMemory
 ```
 
 ## Step 5: Check KiloCode MCP Integration

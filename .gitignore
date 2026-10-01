@@ -23,7 +23,7 @@ Thumbs.db
 .env.*
 !.env.example
 semantic-cache-data/
-.windsurf/memory-database/
-.windsurf/agents-runtime/
+.devin/memory-database/
+.devin/agents-runtime/
 *.db
 *.sqlite

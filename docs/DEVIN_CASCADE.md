@@ -1,12 +1,12 @@
-# 🌊 Windsurf & Cascade - Guide d'Intégration
+# 🌊 Devin & Cascade - Guide d'Intégration
 
-Guide spécifique pour configurer agentMemory avec Windsurf et l'agent Cascade.
+Guide spécifique pour configurer agentMemory avec Devin et l'agent Cascade.
 
 ---
 
-## Pourquoi Windsurf ?
+## Pourquoi Devin ?
 
-Windsurf est l'IDE nouvelle génération de Codeium avec :
+Devin est l'IDE nouvelle génération de Codeium avec :
 
 - **Cascade** : Agent IA intégré pour le développement autonome
 - **Support MCP natif** : Configuration simplifiée des outils externes
@@ -15,11 +15,11 @@ Windsurf est l'IDE nouvelle génération de Codeium avec :
 
 ---
 
-## Architecture Windsurf + agentMemory
+## Architecture Devin + agentMemory
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                      WINDSURF IDE                            │
+│                      DEVIN IDE                            │
 ├─────────────────────────────────────────────────────────────┤
 │  ┌─────────────────────────────────────────────────────┐    │
 │  │                    CASCADE                            │    │
@@ -49,7 +49,7 @@ Windsurf est l'IDE nouvelle génération de Codeium avec :
 
 ### Prérequis
 
-1. **Windsurf installé** : [Télécharger](https://codeium.com/windsurf)
+1. **Devin installé** : [Télécharger](https://devin.ai)
 2. **Node.js 18+** : Vérifier avec `node --version`
 3. **agentMemory compilé** : `npm run compile`
 
@@ -70,7 +70,7 @@ ls -la out/mcp-server/
 
 ### Étape 2 : Créer la Configuration MCP
 
-Créez un fichier `.windsurf/mcp_config.json` à la racine de votre projet :
+Créez un fichier `.devin/mcp_config.json` à la racine de votre projet :
 
 ```json
 {
@@ -92,7 +92,7 @@ Créez un fichier `.windsurf/mcp_config.json` à la racine de votre projet :
 
 > **Important** : Utilisez des chemins absolus pour éviter les problèmes de résolution.
 
-### Étape 3 : Redémarrer Windsurf
+### Étape 3 : Redémarrer Devin
 
 ```
 Cmd/Ctrl + R
@@ -114,7 +114,7 @@ Ajoutez dans `.vscode/settings.json` (à la racine du workspace) :
 
 ```json
 {
-  "codeium.windsurf.mcpServers": {
+  "codeium.devin.mcpServers": {
     "agentmemory": {
       "command": "node",
       "args": [
@@ -183,7 +183,7 @@ memory_write() pour documenter :
 
 ---
 
-## Configuration Avancée Windsurf
+## Configuration Avancée Devin
 
 ### Mode Debug
 
@@ -191,7 +191,7 @@ Pour activer les logs détaillés :
 
 ```json
 {
-  "codeium.windsurf.mcpServers": {
+  "codeium.devin.mcpServers": {
     "agentmemory": {
       "command": "node",
       "args": [
@@ -209,7 +209,7 @@ Pour activer les logs détaillés :
 
 ```json
 {
-  "codeium.windsurf.mcpServers": {
+  "codeium.devin.mcpServers": {
     "agentmemory": {
       "command": "node",
       "args": [...],
@@ -223,7 +223,7 @@ Pour activer les logs détaillés :
 
 ```json
 {
-  "codeium.windsurf.mcpServers": {
+  "codeium.devin.mcpServers": {
     "agentmemory": {
       "command": "node",
       "args": [...],
@@ -239,7 +239,7 @@ Pour activer les logs détaillés :
 
 ---
 
-## Dashboard Windsurf
+## Dashboard Devin
 
 ### Accès
 
@@ -250,25 +250,25 @@ Le dashboard reste accessible via :
 http://localhost:3333
 ```
 
-### Intégration Windsurf
+### Intégration Devin
 
-Vous pouvez intégrer le dashboard dans Windsurf via :
+Vous pouvez intégrer le dashboard dans Devin via :
 
-1. **Webview** : Créer une extension Windsurf personnalisée
+1. **Webview** : Créer une extension Devin personnalisée
 2. **Terminal** : Ouvrir dans le navigateur intégré
 
 ---
 
-## Dépannage Windsurf
+## Dépannage Devin
 
 ### Problème : MCP Non Détecté
 
 **Symptôme** : Cascade ne voit pas les outils agentMemory
 
 **Solution** :
-1. Vérifier `.windsurf/mcp_config.json`
+1. Vérifier `.devin/mcp_config.json`
 2. Vérifier les permissions du fichier
-3. Redémarrer Windsurf complètement
+3. Redémarrer Devin complètement
 
 ### Problème : Erreur de Chemin
 
@@ -312,7 +312,7 @@ Ce projet utilise agentMemory pour la gestion de connaissances.
 
 ```json
 {
-  "codeium.windsurf.mcpServers": {
+  "codeium.devin.mcpServers": {
     "agentmemory": {
       "command": "node",
       "args": [
@@ -339,9 +339,9 @@ Ce projet utilise agentMemory pour la gestion de connaissances.
 
 ---
 
-## Comparaison Windsurf vs VS Code
+## Comparaison Devin vs VS Code
 
-| Feature | Windsurf + Cascade | VS Code + Extension |
+| Feature | Devin + Cascade | VS Code + Extension |
 |---------|-------------------|---------------------|
 | Configuration MCP | Native | Via settings.json |
 | Agent IA | Cascade intégré | Externe |

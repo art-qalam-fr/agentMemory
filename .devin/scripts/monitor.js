@@ -35,7 +35,7 @@ class CascadeMonitor extends EventEmitter {
         console.log(`Status: 🟢 ${status.status.toUpperCase()}`);
         console.log(`Port: ${this.port}`);
         console.log('');
-        console.log('🚀 MCP Servers (Managed by Windsurf):');
+        console.log('🚀 MCP Servers (Managed by Devin):');
         for (const server of ['cache', 'filesystem', 'memory', 'orchestrator', 'zvec']) {
             console.log(`  ${server}: 🟢 ${Math.floor(Math.random() * 50 + 5)}ms`);
         }
