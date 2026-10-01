@@ -1,3 +1,12 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ArchNext/Hephaistos-Kit/main/logo/hephaistos-kit_banderole.jfif" alt="Hephaistos-Kit" width="640"/>
+</p>
+
+> Ce dépôt est un **composant MCP du [Hephaistos-Kit](https://github.com/ArchNext/Hephaistos-Kit)** —
+> utilisable seul, mais conçu pour être cloné en sous-module et installé via `mcp/install.ps1`.
+
+---
+
 # 🚀 agentMemory
 
 **Hybrid Memory System for AI Coding Agents**
