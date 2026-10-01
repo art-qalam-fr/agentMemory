@@ -4,6 +4,8 @@
 
 > Ce dépôt est un **composant MCP du [Hephaistos-Kit](https://github.com/ArchNext/Hephaistos-Kit)** —
 > utilisable seul, mais conçu pour être cloné en sous-module et installé via `mcp/install.ps1`.
+>
+> 🙏 Adapté de [webzler/agentMemory](https://github.com/webzler/agentMemory) — merci aux développeurs originaux pour la base qui a permis cette intégration au kit.
 
 ---
 
