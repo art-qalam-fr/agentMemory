@@ -6,8 +6,8 @@ summary: Compatibilité de l’extension agentMemory avec l’infrastructure MCP
 
 ## 1. Contexte
 - Extension VS Code/Windsurf **agentMemory 0.1.0** (packagée en `.vsix`).
-- Serveurs MCP locaux déjà déclarés : `cache`, `agentmemory`, `filesystem`, `memory`, `orchestrator`, `postgres`, `qdrant`, `sequentialthinking`, `sqlite-node`, `zvec` (@c:\Users\Administrator\.codeium\windsurf\mcp_config.json#1-166).
-- L’extension démarre un serveur MCP **embarqué** (`out/mcp-server/server.js`) pour chaque workspace (@f:\Promgramation-teste\agentMemory\src\extension.ts#104-131). Le `mcp_config.json` démarre aussi un serveur agentmemory **externe** via Node.
+- Serveurs MCP locaux déjà déclarés : `cache`, `agentmemory`, `filesystem`, `memory`, `orchestrator`, `postgres`, `qdrant`, `sequentialthinking`, `sqlite-node`, `zvec` (@<USERPROFILE>\.codeium\windsurf\mcp_config.json#1-166).
+- L’extension démarre un serveur MCP **embarqué** (`out/mcp-server/server.js`) pour chaque workspace (@<HEPHAISTOS_ROOT>\agentMemory\src\extension.ts#104-131). Le `mcp_config.json` démarre aussi un serveur agentmemory **externe** via Node.
 
 ## 2. Points de compatibilité
 - **Double serveur agentMemory** :
@@ -24,7 +24,7 @@ summary: Compatibilité de l’extension agentMemory avec l’infrastructure MCP
   - L’extension agentMemory n’appelle pas directement qdrant/zvec ; elle expose un API Memory (KV + cache + dashboard). Pas d’incompatibilité directe.
 
 - **Security / Interceptor** :
-  - `SecurityManager` et `InterceptorManager` injectent des règles côté VS Code (@f:\Promgramation-teste\agentMemory\src\extension.ts#42-99). Pas de conflit MCP détecté.
+  - `SecurityManager` et `InterceptorManager` injectent des règles côté VS Code (@<HEPHAISTOS_ROOT>\agentMemory\src\extension.ts#42-99). Pas de conflit MCP détecté.
 
 ## 3. Risques et mitigations
 - **Port dashboard (3333)** : si vous démarrez le dashboard (commande `Start Dashboard Server`), vérifier qu’aucun autre service n’occupe le port. Mitigation : changer le port via env `AGENTMEMORY_DASHBOARD_PORT` dans les settings si besoin.

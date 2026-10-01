@@ -8,7 +8,7 @@ Ce workflow décrit la procédure stricte pour initialiser un nouveau workspace 
 
 ## 1. Injection du Template
 - Copier récursivement le répertoire de référence vers la racine du nouveau projet :
-  `Source : C:\Users\Administrator\.codeium\windsurf\templates\AI-Cascade-System\`
+  `Source : <USERPROFILE>\.codeium\windsurf\templates\AI-Cascade-System\`
 - S'assurer que les dossiers `.windsurf/` et `.vscode/` sont bien présents à la racine.
 
 ## 2. Configuration du Projet
