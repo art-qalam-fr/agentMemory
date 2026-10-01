@@ -379,7 +379,7 @@ Store test patterns and retrieve them when generating new tests.
 
 ## Support
 
-- 📖 [Main Documentation](../README.md)
+- 📖 [Main Documentation](README.md)
 - 💬 [GitHub Discussions](https://github.com/webzler/agentMemory/discussions)
 - 🐛 [Report Issues](https://github.com/webzler/agentMemory/issues)
 - 📧 Email: amitrathiesh@webzler.com
