@@ -42,9 +42,9 @@ class MCPServer {
 
         // Dynamic storage selection
         // 1) Explicit override via env
-        // 2) F:/Sqlite-DB/current_workspace/<projectId>/agentmemory (ingestion mapping)
+        // 2) <AGENTMEMORY_DATA_ROOT>/<projectId>/agentmemory (ingestion mapping)
         // 3) Fallback: workspace-local .agentMemory
-        const unifiedBase = 'F:/Sqlite-DB/current_workspace';
+        const unifiedBase = process.env.AGENTMEMORY_DATA_ROOT || './data/current_workspace';
         const storagePath = process.env.AGENTMEMORY_STORAGE_PATH
             || process.env.MCP_STORAGE_PATH
             || path.join(unifiedBase, projectId, 'agentmemory')
