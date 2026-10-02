@@ -1,0 +1,18 @@
+{
+  "system": {
+    "name": "CASCADE",
+    "version": "1.0.0",
+    "initialized": "2026-03-10",
+    "project": "agentMemory"
+  },
+  "agents": {
+    "enabled": ["architect", "coder", "memory", "orchestrator", "research", "reviewer"]
+  },
+  "monitoring": {
+    "port": 3055
+  },
+  "ingestion": {
+    "mode": "powershell",
+    "config": "ingestion.config.json"
+  }
+}
