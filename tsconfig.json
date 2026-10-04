@@ -13,8 +13,11 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
+        "types": [
+            "node"
+        ],
         "moduleResolution": "node10",
-        "ignoreDeprecations": "5.0"
+        "ignoreDeprecations": "6.0"
     },
     "include": [
         "src/**/*"
