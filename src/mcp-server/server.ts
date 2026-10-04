@@ -92,7 +92,7 @@ class MCPServer {
                     const { name, arguments: args } = params;
 
                     // Add projectId to arguments
-                    const toolArgs = { ...args, projectId: this.projectId };
+                    const toolArgs = { projectId: this.projectId, ...args };
 
                     // Call the appropriate tool
                     let result;
