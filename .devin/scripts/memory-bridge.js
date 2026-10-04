@@ -9,7 +9,12 @@ class MemoryBridge {
     constructor() {
         this.projectRoot = process.cwd();
         this.projectId = path.basename(this.projectRoot);
-        this.unifiedBase = '<AGENTMEMORY_DATA_ROOT>/current_workspace';
+        this.unifiedBase = path.join(
+            process.env.AGENTMEMORY_DATA_ROOT ||
+            process.env.MCP_STORAGE_PATH ||
+            path.join(process.env.SQLITE_DB_ROOT || process.cwd(), 'current_workspace'),
+            'agentmemory'
+        );
     }
 
     /**

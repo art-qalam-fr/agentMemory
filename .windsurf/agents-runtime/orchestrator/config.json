@@ -1,0 +1,116 @@
+{
+  "agent": {
+    "name": "orchestrator",
+    "version": "1.0.0",
+    "type": "coordinator",
+    "description": "Agent principal de coordination du système Cascade"
+  },
+  "runtime": {
+    "port": 3003,
+    "protocol": "websocket",
+    "max_concurrent_tasks": 10,
+    "task_timeout": 300000,
+    "heartbeat_interval": 30000
+  },
+  "capabilities": [
+    "task_distribution",
+    "state_management",
+    "dependency_resolution",
+    "agent_communication",
+    "workflow_orchestration"
+  ],
+  "dependencies": {
+    "agents": ["architect", "coder", "reviewer", "research", "memory"],
+    "services": ["cache", "memory", "mcp_router"]
+  },
+  "task_queue": {
+    "type": "redis",
+    "host": "localhost",
+    "port": 6379,
+    "queue_name": "orchestrator_tasks",
+    "priority_levels": 5,
+    "max_queue_size": 10000
+  },
+  "state": {
+    "storage": "sqlite",
+    "database": "./orchestrator_state.db",
+    "backup_interval": 300000,
+    "max_state_history": 1000
+  },
+  "communication": {
+    "message_bus": {
+      "type": "redis",
+      "host": "localhost",
+      "port": 6379,
+      "channels": {
+        "tasks": "cascade.tasks",
+        "status": "cascade.status",
+        "events": "cascade.events"
+      }
+    },
+    "rpc": {
+      "timeout": 10000,
+      "retries": 3,
+      "backoff": "exponential"
+    }
+  },
+  "workflows": {
+    "feature_development": {
+      "enabled": true,
+      "stages": [
+        {"name": "design", "agent": "architect", "timeout": 60000},
+        {"name": "implement", "agent": "coder", "timeout": 300000},
+        {"name": "review", "agent": "reviewer", "timeout": 60000},
+        {"name": "deploy", "agent": "orchestrator", "timeout": 30000}
+      ]
+    },
+    "bug_fix": {
+      "enabled": true,
+      "stages": [
+        {"name": "analyze", "agent": "research", "timeout": 30000},
+        {"name": "fix", "agent": "coder", "timeout": 180000},
+        {"name": "test", "agent": "reviewer", "timeout": 60000}
+      ]
+    },
+    "research_task": {
+      "enabled": true,
+      "stages": [
+        {"name": "research", "agent": "research", "timeout": 120000},
+        {"name": "synthesize", "agent": "memory", "timeout": 30000}
+      ]
+    }
+  },
+  "monitoring": {
+    "metrics": {
+      "enabled": true,
+      "port": 9090,
+      "endpoint": "/metrics"
+    },
+    "health": {
+      "enabled": true,
+      "endpoint": "/health",
+      "dependencies": ["cache", "memory", "agents"]
+    },
+    "logging": {
+      "level": "info",
+      "format": "json",
+      "outputs": ["console", "file"]
+    }
+  },
+  "security": {
+    "authentication": {
+      "enabled": true,
+      "method": "jwt",
+      "secret_env": "ORCHESTRATOR_JWT_SECRET",
+      "expiry": 3600
+    },
+    "authorization": {
+      "roles": ["admin", "user", "agent"],
+      "permissions": {
+        "admin": ["*"],
+        "user": ["read", "execute"],
+        "agent": ["execute", "status"]
+      }
+    }
+  }
+}

@@ -254,6 +254,17 @@ Agents treat this as **project architecture** and follow it automatically.
 | `memory_list` | List by type | Show all architecture decisions |
 | `memory_update` | Modify existing | Append to existing pattern |
 | `memory_stats` | View analytics | Usage statistics |
+| `project_init` | Initialize a project namespace | Create project memory space |
+
+### Variables d'environnement
+
+| Variable | Rôle | Défaut |
+|----------|------|--------|
+| `AGENTMEMORY_DATA_ROOT` | Racine des données mémoire | `~/.agentmemory` |
+| `AGENTMEMORY_STORAGE_PATH` | Chemin de stockage alternatif | dérivé de `AGENTMEMORY_DATA_ROOT` |
+| `MCP_STORAGE_PATH` | Répertoire de stockage MCP | détecté automatiquement |
+
+Serveur stdio : `npm run start-server <project_id> <workspace_path>`
 
 ---
 

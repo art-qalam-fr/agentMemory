@@ -28,7 +28,9 @@ export class SocketBridge {
     private server: net.Server | null = null;
 
     constructor(projectId: string) {
-        this.socketPath = `/tmp/mcp-memory-${projectId}.sock`;
+        this.socketPath = process.platform === 'win32'
+            ? `\\\\.\\pipe\\mcp-memory-${projectId}`
+            : `/tmp/mcp-memory-${projectId}.sock`;
     }
 
     start(handleRequest: (req: MCPRequest) => Promise<MCPResponse | null>) {

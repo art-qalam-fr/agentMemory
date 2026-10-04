@@ -1,0 +1,161 @@
+{
+  "agent": {
+    "name": "research",
+    "version": "1.0.0",
+    "type": "information_gatherer",
+    "description": "Agent de recherche et de veille technologique"
+  },
+  "runtime": {
+    "port": 3013,
+    "protocol": "http",
+    "max_concurrent_research": 6,
+    "research_timeout": 300000
+  },
+  "capabilities": [
+    "information_retrieval",
+    "technology_analysis",
+    "benchmarking",
+    "knowledge_synthesis",
+    "trend_analysis"
+  ],
+  "sources": {
+    "web": {
+      "enabled": true,
+      "engines": ["google", "bing", "duckduckgo"],
+      "max_results": 20,
+      "timeout": 10000
+    },
+    "documentation": {
+      "enabled": true,
+      "sites": [
+        "developer.mozilla.org",
+        "docs.python.org",
+        "nodejs.org",
+        "react.dev",
+        "nextjs.org"
+      ],
+      "api_keys": {
+        "google_custom_search": "${GOOGLE_SEARCH_API_KEY}"
+      }
+    },
+    "stackoverflow": {
+      "enabled": true,
+      "api_key": "${STACKOVERFLOW_API_KEY}",
+      "min_score": 5,
+      "max_answers": 5
+    },
+    "github": {
+      "enabled": true,
+      "api_token": "${GITHUB_TOKEN}",
+      "search_repos": true,
+      "search_code": true,
+      "max_repos": 10
+    },
+    "arxiv": {
+      "enabled": true,
+      "categories": ["cs.SE", "cs.PL", "cs.LG"],
+      "max_papers": 5
+    },
+    "news": {
+      "enabled": true,
+      "sources": ["hacker_news", "reddit_programming", "dev_to"],
+      "max_articles": 10
+    }
+  },
+  "search_strategies": {
+    "keyword_expansion": {
+      "enabled": true,
+      "synonyms": true,
+      "related_terms": true
+    },
+    "domain_filtering": {
+      "enabled": true,
+      "trusted_domains": [
+        "github.com",
+        "stackoverflow.com",
+        "developer.mozilla.org",
+        "docs.python.org"
+      ]
+    },
+    "temporal_filtering": {
+      "enabled": true,
+      "default_range": "1y",
+      "options": ["1d", "1w", "1m", "1y", "all"]
+    }
+  },
+  "processing": {
+    "summarization": {
+      "model": "gpt-3.5-turbo",
+      "max_length": 500,
+      "extract_key_points": true
+    },
+    "classification": {
+      "categories": [
+        "tutorial",
+        "documentation",
+        "example",
+        "discussion",
+        "news",
+        "research"
+      ]
+    },
+    "relevance_scoring": {
+      "enabled": true,
+      "factors": [
+        "recency",
+        "authority",
+        "popularity",
+        "keyword_match"
+      ]
+    }
+  },
+  "cache": {
+    "search_results": {
+      "ttl": 3600,
+      "max_entries": 1000
+    },
+    "summaries": {
+      "ttl": 86400,
+      "max_entries": 500
+    },
+    "knowledge": {
+      "ttl": 604800,
+      "max_entries": 2000
+    }
+  },
+  "output_formats": {
+    "summary": {
+      "max_length": 1000,
+      "include_sources": true,
+      "include_confidence": true
+    },
+    "detailed": {
+      "include_raw_data": false,
+      "include_metadata": true,
+      "formatting": "markdown"
+    },
+    "structured": {
+      "schema": "./schemas/research_output.json",
+      "include_all_fields": true
+    }
+  },
+  "monitoring": {
+    "metrics": {
+      "searches_performed": "counter",
+      "sources_used": "counter",
+      "response_time": "histogram",
+      "cache_hit_rate": "gauge"
+    },
+    "quality": {
+      "relevance_feedback": true,
+      "user_ratings": true,
+      "automatic_validation": true
+    }
+  },
+  "api_limits": {
+    "requests_per_minute": 60,
+    "requests_per_hour": 1000,
+    "daily_quota": 10000,
+    "burst_size": 10
+  }
+}

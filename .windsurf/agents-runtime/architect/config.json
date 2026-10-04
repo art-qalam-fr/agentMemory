@@ -1,0 +1,91 @@
+{
+  "agent": {
+    "name": "architect",
+    "version": "1.0.0",
+    "type": "designer",
+    "description": "Agent d'architecture et de conception logicielle"
+  },
+  "runtime": {
+    "port": 3010,
+    "protocol": "http",
+    "max_concurrent_designs": 5,
+    "design_timeout": 180000
+  },
+  "capabilities": [
+    "system_design",
+    "technology_selection",
+    "pattern_recognition",
+    "architecture_documentation",
+    "diagram_generation"
+  ],
+  "design_patterns": {
+    "enabled": [
+      "clean_architecture",
+      "domain_driven_design",
+      "microservices",
+      "event_driven_architecture",
+      "cqrs",
+      "hexagonal_architecture"
+    ],
+    "custom_patterns_path": "./patterns/"
+  },
+  "technology_stack": {
+    "languages": ["javascript", "typescript", "python", "java", "go", "rust"],
+    "frameworks": {
+      "web": ["react", "vue", "angular", "next.js", "express", "fastapi"],
+      "mobile": ["react_native", "flutter", "swift", "kotlin"],
+      "backend": ["node.js", "django", "spring_boot", "asp.net_core"],
+      "database": ["postgresql", "mongodb", "redis", "elasticsearch"]
+    },
+    "cloud": ["aws", "azure", "gcp", "firebase", "vercel"]
+  },
+  "output_formats": {
+    "diagrams": ["mermaid", "plantuml", "drawio", "c4"],
+    "documentation": ["markdown", "asciidoc", "openapi"],
+    "code": ["typescript", "python", "java"]
+  },
+  "templates": {
+    "architecture_decisions": "./templates/adr.md",
+    "system_overview": "./templates/system_overview.md",
+    "api_specification": "./templates/api.yaml",
+    "deployment_guide": "./templates/deployment.md"
+  },
+  "ai_integration": {
+    "model": "gpt-4",
+    "temperature": 0.3,
+    "max_tokens": 4000,
+    "system_prompt": "./prompts/architect_system.txt",
+    "few_shot_examples": "./examples/architect_examples.json"
+  },
+  "cache": {
+    "designs": {
+      "ttl": 3600,
+      "max_size": 100
+    },
+    "patterns": {
+      "ttl": 86400,
+      "max_size": 500
+    },
+    "technologies": {
+      "ttl": 604800,
+      "max_size": 1000
+    }
+  },
+  "validation": {
+    "architecture_rules": "./rules/architecture_rules.json",
+    "best_practices": "./rules/best_practices.json",
+    "security_guidelines": "./rules/security.json"
+  },
+  "monitoring": {
+    "metrics": {
+      "designs_created": "counter",
+      "designs_quality": "histogram",
+      "technology_selections": "counter",
+      "response_time": "histogram"
+    },
+    "logging": {
+      "level": "debug",
+      "include_design_details": true
+    }
+  }
+}
