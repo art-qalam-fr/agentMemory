@@ -34,8 +34,9 @@ export class SocketBridge {
     }
 
     start(handleRequest: (req: MCPRequest) => Promise<MCPResponse | null>) {
-        // Remove existing socket if it exists
-        if (fs.existsSync(this.socketPath)) {
+        // Sous Windows, les named pipes ne sont pas des fichiers :
+        // pas de residu a supprimer (unlink echouerait avec EINVAL)
+        if (process.platform !== 'win32' && fs.existsSync(this.socketPath)) {
             fs.unlinkSync(this.socketPath);
         }
 
@@ -98,7 +99,7 @@ export class SocketBridge {
     }
 
     private cleanup() {
-        if (fs.existsSync(this.socketPath)) {
+        if (process.platform !== 'win32' && fs.existsSync(this.socketPath)) {
             fs.unlinkSync(this.socketPath);
         }
     }
