@@ -33,3 +33,8 @@ FIND_KILOCODE_ID.md
 DASHBOARD_TESTING.md
 test-dashboard.js
 detect-agents.js
+
+# Copies deployees du kit + runtime local
+.agent/
+.windsurf/
+.vscode/

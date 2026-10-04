@@ -1,8 +1,0 @@
-{
-  "name": "learning_insights",
-  "dimensions": 384,
-  "distance": "Cosine",
-  "enableHybrid": false,
-  "createdAt": "2026-03-13T13:11:47.875Z",
-  "documentCount": 0
-}
