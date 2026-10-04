@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "sources": {
       "workspace_root": "../..",
-      "exclude": ["**/.git/**", "**/node_modules/**", "**/dist/**", "**/.windsurf/**"],
+      "exclude": ["**/.git/**", "**/node_modules/**", "**/dist/**", "**/.devin/**"],
       "max_file_size_mb": 5
     },
     "metadata": {

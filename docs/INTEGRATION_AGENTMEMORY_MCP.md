@@ -5,8 +5,8 @@ summary: Compatibilité de l’extension agentMemory avec l’infrastructure MCP
 ---
 
 ## 1. Contexte
-- Extension VS Code/Windsurf **agentMemory 0.1.0** (packagée en `.vsix`).
-- Serveurs MCP locaux déjà déclarés : `cache`, `agentmemory`, `filesystem`, `memory`, `orchestrator`, `postgres`, `qdrant`, `sequentialthinking`, `sqlite-node`, `zvec` (@<USERPROFILE>\.codeium\windsurf\mcp_config.json#1-166).
+- Extension VS Code/Devin **agentMemory 0.1.0** (packagée en `.vsix`).
+- Serveurs MCP locaux déjà déclarés : `cache`, `agentmemory`, `filesystem`, `memory`, `orchestrator`, `postgres`, `qdrant`, `sequentialthinking`, `sqlite-node`, `zvec` (@<USERPROFILE>\.codeium\devin\mcp_config.json#1-166).
 - L’extension démarre un serveur MCP **embarqué** (`out/mcp-server/server.js`) pour chaque workspace (@<HEPHAISTOS_ROOT>\agentMemory\src\extension.ts#104-131). Le `mcp_config.json` démarre aussi un serveur agentmemory **externe** via Node.
 
 ## 2. Points de compatibilité
@@ -16,8 +16,8 @@ summary: Compatibilité de l’extension agentMemory avec l’infrastructure MCP
   - Conclusion : OK mais redondant. Garder un seul chemin de démarrage pour éviter des conflits de ports/logs.
 
 - **Cache / memory / sqlite-node** :
-  - Les serveurs MCP `cache` et `memory` utilisent SQLite sous `F:/Sqlite-DB/current_workspace/...` et respectent l’architecture unifiée locale (cache + graph).
-  - L’extension agentMemory stocke par défaut `./mcp-data` (config `agentMemory.storageLocation`). Compatibilité fonctionnelle, mais non mutualisée avec `F:/Sqlite-DB/current_workspace`. Pour une mutualisation complète, reconfigurer `agentMemory.storageLocation` vers `F:/Sqlite-DB/current_workspace` (ou un sous-dossier dédié) dans les settings VS Code/Windsurf.
+  - Les serveurs MCP `cache` et `memory` utilisent SQLite sous `<AGENTMEMORY_DATA_ROOT>/current_workspace/...` et respectent l’architecture unifiée locale (cache + graph).
+  - L’extension agentMemory stocke par défaut `./mcp-data` (config `agentMemory.storageLocation`). Compatibilité fonctionnelle, mais non mutualisée avec `<AGENTMEMORY_DATA_ROOT>/current_workspace`. Pour une mutualisation complète, reconfigurer `agentMemory.storageLocation` vers `<AGENTMEMORY_DATA_ROOT>/current_workspace` (ou un sous-dossier dédié) dans les settings VS Code/Devin.
 
 - **Qdrant / Zvec** :
   - Les serveurs `qdrant` (vecteurs denses) et `zvec` (hybride local) sont déjà configurés dans `mcp_config.json`.
@@ -29,7 +29,7 @@ summary: Compatibilité de l’extension agentMemory avec l’infrastructure MCP
 ## 3. Risques et mitigations
 - **Port dashboard (3333)** : si vous démarrez le dashboard (commande `Start Dashboard Server`), vérifier qu’aucun autre service n’occupe le port. Mitigation : changer le port via env `AGENTMEMORY_DASHBOARD_PORT` dans les settings si besoin.
 - **Taille du VSIX** (9.44 MB, 5720 fichiers) : warning `vsce` recommande un bundling et un `.vscodeignore` plus strict. Non bloquant pour l’intégration, mais à optimiser.
-- **Redondance de stockage** : extension stocke localement dans `./mcp-data` alors que l’architecture unifiée vise `F:/Sqlite-DB/current_workspace`. Recommandé d’aligner le chemin pour faciliter la consolidation.
+- **Redondance de stockage** : extension stocke localement dans `./mcp-data` alors que l’architecture unifiée vise `<AGENTMEMORY_DATA_ROOT>/current_workspace`. Recommandé d’aligner le chemin pour faciliter la consolidation.
 
 ## 4. Recommandations d’intégration
 1) **Choisir un seul point de démarrage agentMemory** :
@@ -38,7 +38,7 @@ summary: Compatibilité de l’extension agentMemory avec l’infrastructure MCP
    - Éviter le double démarrage pour limiter le bruit de logs.
 
 2) **Aligner le stockage** :
-   - Dans les settings VS Code/Windsurf, définir `agentMemory.storageLocation` sur `F:/Sqlite-DB/current_workspace/agentmemory` (ou similaire) pour rester cohérent avec `cache/memory/sqlite-node`.
+   - Dans les settings VS Code/Devin, définir `agentMemory.storageLocation` sur `<AGENTMEMORY_DATA_ROOT>/current_workspace/agentmemory` (ou similaire) pour rester cohérent avec `cache/memory/sqlite-node`.
 
 3) **Dashboard** :
    - Si besoin du dashboard, lancer la commande `agentMemory: Start Dashboard Server`. Changer le port via env si conflit (`AGENTMEMORY_DASHBOARD_PORT`).
@@ -52,4 +52,4 @@ summary: Compatibilité de l’extension agentMemory avec l’infrastructure MCP
 
 ## 5. Conclusion
 - Compatibilité générale : OK. Aucun conflit critique avec les MCP existants (cache/memory/sqlite-node/qdrant/zvec).
-- Action recommandée : éviter le double démarrage du serveur agentMemory et aligner le chemin de stockage sur `F:/Sqlite-DB/current_workspace` pour rester dans l’architecture mémoire unifiée locale/globale.
+- Action recommandée : éviter le double démarrage du serveur agentMemory et aligner le chemin de stockage sur `<AGENTMEMORY_DATA_ROOT>/current_workspace` pour rester dans l’architecture mémoire unifiée locale/globale.

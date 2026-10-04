@@ -109,18 +109,18 @@ Le serveur MCP utilise :
 
 ---
 
-## Méthode 4 : Intégration Windsurf/Codeium
+## Méthode 4 : Intégration Devin/Codeium
 
-### Prérequis Windsurf
+### Prérequis Devin
 
-1. Installer **Windsurf** depuis [codeium.com/windsurf](https://codeium.com/windsurf)
-2. Assurez-vous d'avoir accès à **Cascade** (l'agent IA de Windsurf)
+1. Installer **Devin** depuis [devin.ai](https://devin.ai)
+2. Assurez-vous d'avoir accès à **Cascade** (l'agent IA de Devin)
 
-### Configuration MCP pour Windsurf
+### Configuration MCP pour Devin
 
 #### Étape 1 : Créer le Fichier de Configuration
 
-Créez `.windsurf/mcp_config.json` :
+Créez `.devin/mcp_config.json` :
 
 ```json
 {
@@ -140,7 +140,7 @@ Créez `.windsurf/mcp_config.json` :
 }
 ```
 
-#### Étape 2 : Redémarrer Windsurf
+#### Étape 2 : Redémarrer Devin
 
 ```
 Cmd/Ctrl + R
@@ -148,7 +148,7 @@ Cmd/Ctrl + R
 
 #### Étape 3 : Vérifier la Configuration
 
-Dans Windsurf, ouvrez la palette de commandes :
+Dans Devin, ouvrez la palette de commandes :
 ```
 Cmd/Ctrl + Shift + P
 ```

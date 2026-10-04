@@ -2,7 +2,7 @@
 
 ## ✅ Test Data Created!
 
-6 sample memories have been created in `/Users/amitrathiesh/Projects/agentMemory/mcp-data/agentMemory/`
+6 sample memories have been created in `~/Projects/agentMemory/mcp-data/agentMemory/`
 
 ## How to Test Dashboard
 
@@ -66,7 +66,7 @@
 
 **Check 1:** Verify files were created
 ```bash
-ls -la /Users/amitrathiesh/Projects/agentMemory/mcp-data/agentMemory/
+ls -la ~/Projects/agentMemory/mcp-data/agentMemory/
 ```
 Should see 6 `.json` files
 
@@ -95,7 +95,7 @@ console.log(vscode.workspace.workspaceFolders[0].uri.fsPath);
 
 To remove test data:
 ```bash
-rm -rf /Users/amitrathiesh/Projects/agentMemory/mcp-data/agentMemory/
+rm -rf ~/Projects/agentMemory/mcp-data/agentMemory/
 ```
 
 ## Create More Test Data

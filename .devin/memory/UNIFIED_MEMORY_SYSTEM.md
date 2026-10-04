@@ -23,8 +23,8 @@ Le système de mémoire unifié intègre trois types de stockage :
 ## 🧠 DISCIPLINE DE MÉMOIRE UNIFIÉE (AGENTMEMORY)
 
 ### 1. ANCRAGE DU STOCKAGE
-- **OBLIGATION** : Toute donnée de mémoire persistante (KV, Graph, Vector) DOIT être stockée exclusivement dans `F:/Sqlite-DB/current_workspace/`.
-- **ISOLATION** : Utiliser un sous-dossier par projet (`F:/Sqlite-DB/current_workspace/${projectId}/agentmemory`).
+- **OBLIGATION** : Toute donnée de mémoire persistante (KV, Graph, Vector) DOIT être stockée exclusivement dans `<AGENTMEMORY_DATA_ROOT>/current_workspace/`.
+- **ISOLATION** : Utiliser un sous-dossier par projet (`<AGENTMEMORY_DATA_ROOT>/current_workspace/${projectId}/agentmemory`).
 - **BRIDGE** : Le script `scripts/memory-bridge.js` assure la liaison entre les scans locaux et ce stockage.
 
 ### 2. SOURCING SYSTÉMATIQUE

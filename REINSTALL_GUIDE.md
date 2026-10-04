@@ -18,7 +18,7 @@ Close and reopen VS Code (or click "Reload Window")
 
 ### Step 3: Install New Version
 ```bash
-code --install-extension /Users/amitrathiesh/Projects/agentMemory/agentmemory-0.1.0.vsix
+code --install-extension ~/Projects/agentMemory/agentmemory-0.1.0.vsix
 ```
 
 ### Step 4: Verify Installation
@@ -94,7 +94,7 @@ If after reinstalling it still creates all files:
 2. **Check compiled code:**
    ```bash
    # Verify the detection code is in the compiled output
-   cat /Users/amitrathiesh/Projects/agentMemory/out/interceptor.js | grep "detectInstalledAgents"
+   cat ~/Projects/agentMemory/out/interceptor.js | grep "detectInstalledAgents"
    ```
 
 3. **Delete old workspace files first:**

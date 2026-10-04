@@ -10,7 +10,7 @@
                 "-ExecutionPolicy",
                 "Bypass",
                 "-File",
-                "${workspaceFolder}\\.windsurf\\scripts\\start-workspace.ps1",
+                "${workspaceFolder}\\.devin\\scripts\\start-workspace.ps1",
                 "-IngestMode",
                 "auto"
             ],

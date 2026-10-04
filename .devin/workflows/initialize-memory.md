@@ -9,8 +9,8 @@ Ce workflow permet à Cascade d'injecter les données scannées par les scripts 
 ## Étapes d'Initialisation
 
 1. **Vérification du Scan**
-   - Lire le fichier `.windsurf/knowledge/ingestion_queue.json`.
-   - Si le fichier est absent, demander à l'utilisateur de lancer `.\.windsurf\scripts\start-system.bat`.
+   - Lire le fichier `.devin/knowledge/ingestion_queue.json`.
+   - Si le fichier est absent, demander à l'utilisateur de lancer `.\.devin\scripts\start-system.bat`.
 
 2. **Injection Vectorielle (Zvec/Qdrant)**
    - Extraire les documents du JSON.

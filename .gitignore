@@ -23,7 +23,13 @@ Thumbs.db
 .env.*
 !.env.example
 semantic-cache-data/
-.windsurf/memory-database/
-.windsurf/agents-runtime/
+.devin/memory-database/
+.devin/agents-runtime/
 *.db
 *.sqlite
+.ingestion-state.json
+DEBUG_*.md
+FIND_KILOCODE_ID.md
+DASHBOARD_TESTING.md
+test-dashboard.js
+detect-agents.js

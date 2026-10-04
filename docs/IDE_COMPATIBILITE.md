@@ -9,13 +9,13 @@ Guide complet pour utiliser agentMemory avec différents IDE et extensions.
 | IDE | Support | Méthode d'Intégration |
 |-----|---------|----------------------|
 | **VS Code + Extension** | ✅ Complet | Extension native |
-| **Windsurf** | ✅ Complet | Configuration MCP |
+| **Devin** | ✅ Complet | Configuration MCP |
 | **KiloCode** | ✅ Complet | Sync automatique |
 | **Cline** | ✅ Complet | Sync automatique |
 | **RooCode** | ✅ Complet | Sync automatique |
 | **Trae** | ✅ Complet | Configuration MCP |
 | **Cursor** | ⚠️ Partiel | MCP externe |
-| **Codeium (Extension)** | ✅ Complet | Via Windsurf |
+| **Codeium (Extension)** | ✅ Complet | Via Devin |
 
 ---
 
@@ -51,17 +51,17 @@ L'extension crée automatiquement :
 
 ---
 
-## Windsurf (Codeium)
+## Devin (Codeium)
 
-### À Propos de Windsurf
+### À Propos de Devin
 
-Windsurf est l'IDE de Codeium avec l'agent IA **Cascade** intégré. Il supporte nativement MCP.
+Devin est l'IDE de Codeium avec l'agent IA **Cascade** intégré. Il supporte nativement MCP.
 
 ### Configuration MCP
 
 #### Méthode 1 : Fichier de Configuration (Recommandée)
 
-Créez `.windsurf/mcp_config.json` à la racine du projet :
+Créez `.devin/mcp_config.json` à la racine du projet :
 
 ```json
 {
@@ -85,7 +85,7 @@ Créez `.windsurf/mcp_config.json` à la racine du projet :
 
 #### Méthode 2 : Configuration Utilisateur
 
-Ajoutez dans les paramètres utilisateur Windsurf :
+Ajoutez dans les paramètres utilisateur Devin :
 
 ```json
 {
@@ -108,7 +108,7 @@ Dans `.vscode/settings.json` :
 
 ```json
 {
-  "codeium.windsurf.mcpServers": {
+  "codeium.devin.mcpServers": {
     "agentMemory": {
       "url": "unix:///tmp/mcp-memory-monprojet.sock"
     }
@@ -118,7 +118,7 @@ Dans `.vscode/settings.json` :
 
 ### Activation avec Cascade
 
-1. Démarrer Windsurf avec un projet configuré
+1. Démarrer Devin avec un projet configuré
 2. Cascade détectera automatiquement agentMemory
 3. Les instructions memory-first seront injectées
 4. Utiliser les outils MCP directement dans les prompts
@@ -312,9 +312,9 @@ Utilisez une extension MCP tiers pour Cursor, puis configurez agentMemory.
 
 ## Codeium (Extension VS Code)
 
-### Via Windsurf
+### Via Devin
 
-L'extension Codeium dans VS Code peut être remplacée par Windsurf pour le support MCP complet.
+L'extension Codeium dans VS Code peut être remplacée par Devin pour le support MCP complet.
 
 ### Configuration Alternative
 
@@ -333,7 +333,7 @@ Si vous utilisez l'extension Codeium单独的 :
 | IDE | Native MCP | Memory Bank Sync | Dashboard |
 |-----|------------|------------------|-----------|
 | VS Code + ext | ✅ | ✅ | ✅ |
-| Windsurf | ✅ | ✅ | ✅ |
+| Devin | ✅ | ✅ | ✅ |
 | KiloCode | ⚠️ Via ext | ✅ | ✅ |
 | Cline | ⚠️ Via ext | ✅ | ✅ |
 | RooCode | ⚠️ Via ext | ✅ | ✅ |
@@ -375,5 +375,5 @@ node detect-agents.js
 ## Prochaines Étapes
 
 - **[INSTALLATION.md](INSTALLATION.md)** - Guide d'installation
-- **[WINDSURF_CASCADE.md](WINDSURF_CASCADE.md)** - Guide Windsurf/Cascade spécifique
+- **[DEVIN_CASCADE.md](DEVIN_CASCADE.md)** - Guide Devin/Cascade spécifique
 - **[INTEGRATION_MCP.md](INTEGRATION_MCP.md)** - Configuration MCP avancée
