@@ -98,7 +98,7 @@
     "dependencies": {
         "@modelcontextprotocol/sdk": "^1.27.1",
         "@types/uuid": "^10.0.0",
-        "fastify": "^5.8.2",
+        "fastify": "^5.12.5",
         "keyv": "^4.5.4",
         "keyv-file": "^0.2.0",
         "level": "^8.0.0",
