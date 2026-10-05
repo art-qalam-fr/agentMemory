@@ -103,7 +103,7 @@
         "keyv-file": "^0.2.0",
         "level": "^8.0.0",
         "lru-cache": "^10.1.0",
-        "msgpack-lite": "^0.1.26",
+        "msgpack-lite": "^0.2.2",
         "uuid": "^13.0.0"
     },
     "repository": {
