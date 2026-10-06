@@ -169,7 +169,14 @@ export class MCPTools {
             const storagePath = this.storage.baseDir;
             console.error('[project_init] Storage path:', storagePath);
 
-            if (storagePath) {
+            // Under unified storage (AGENTMEMORY_DATA_ROOT), dirname(storagePath)
+            // lands inside the shared DB store — never scaffold .agent there.
+            // The workspace .agent structure is owned by the Hephaistos kit.
+            const dataRoot = process.env.AGENTMEMORY_DATA_ROOT;
+            const isUnified = !!(dataRoot && storagePath &&
+                path.resolve(storagePath).startsWith(path.resolve(dataRoot)));
+
+            if (storagePath && !isUnified) {
                 const projectRoot = path.dirname(storagePath); // Parent of .agentMemory
                 console.error('[project_init] Project root:', projectRoot);
 

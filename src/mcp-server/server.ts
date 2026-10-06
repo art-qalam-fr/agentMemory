@@ -44,11 +44,12 @@ class MCPServer {
         // 1) Explicit override via env
         // 2) <AGENTMEMORY_DATA_ROOT>/<projectId>/agentmemory (ingestion mapping)
         // 3) Fallback: workspace-local .agentMemory
-        const unifiedBase = process.env.AGENTMEMORY_DATA_ROOT || './data/current_workspace';
+        const unifiedBase = process.env.AGENTMEMORY_DATA_ROOT;
         const storagePath = process.env.AGENTMEMORY_STORAGE_PATH
             || process.env.MCP_STORAGE_PATH
-            || path.join(unifiedBase, projectId, 'agentmemory')
-            || (workspacePath + '/.agentMemory');
+            || (unifiedBase
+                ? path.join(unifiedBase, projectId, 'agentmemory')
+                : path.join(workspacePath, '.agentMemory'));
         this.storage = new StorageManager(storagePath);
 
         this.cache = new CacheManager({
@@ -232,8 +233,13 @@ class MCPServer {
 }
 
 // Main entry point
-const projectId = process.argv[2] || 'default-project';
-const workspacePath = process.argv[3] || process.cwd();
+// Les IDE qui n'expandent pas les variables VS Code passent des placeholders
+// litteraux (ex: "${workspaceBasename}") qui creaient des dossiers strays.
+const isPlaceholder = (v?: string) => !v || /\$\{[^}]*\}/.test(v);
+const workspacePath = isPlaceholder(process.argv[3]) ? process.cwd() : process.argv[3]!;
+const projectId = isPlaceholder(process.argv[2])
+    ? (path.basename(workspacePath) || 'default-project')
+    : process.argv[2]!;
 
 const server = new MCPServer(projectId, workspacePath);
 server.start();
