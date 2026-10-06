@@ -7,6 +7,7 @@ import { SocketBridge } from './socket-bridge';
 import { MemoryBankSync } from './memory-bank-sync';
 import { StandaloneDashboard } from '../standalone-dashboard';
 import * as path from 'path';
+import * as os from 'os';
 
 interface MCPRequest {
     jsonrpc: string;
@@ -43,13 +44,14 @@ class MCPServer {
         // Dynamic storage selection
         // 1) Explicit override via env
         // 2) <AGENTMEMORY_DATA_ROOT>/<projectId>/agentmemory (ingestion mapping)
-        // 3) Fallback: workspace-local .agentMemory
+        // 3) Fallback: user-level ~/.agentMemory/<projectId> — never pollute
+        //    the workspace (memory-database layout is owned by the kit)
         const unifiedBase = process.env.AGENTMEMORY_DATA_ROOT;
         const storagePath = process.env.AGENTMEMORY_STORAGE_PATH
             || process.env.MCP_STORAGE_PATH
             || (unifiedBase
                 ? path.join(unifiedBase, projectId, 'agentmemory')
-                : path.join(workspacePath, '.agentMemory'));
+                : path.join(os.homedir(), '.agentMemory', projectId));
         this.storage = new StorageManager(storagePath);
 
         this.cache = new CacheManager({
@@ -57,8 +59,9 @@ class MCPServer {
             ttl: 3600000 // 1 hour
         });
 
-        // Initialize sync engine
-        this.syncEngine = new MemoryBankSync(workspacePath);
+        // Initialize sync engine — le miroir local .agentMemory/ n'a de sens
+        // qu'en mode workspace-local ; en mode unifié il dupliquerait le store.
+        this.syncEngine = new MemoryBankSync(workspacePath, unifiedBase ? null : '.agentMemory');
         this.tools = new MCPTools(this.storage, this.cache, this.syncEngine);
 
         console.error(`[MCP Server] Initialized for project: ${projectId}`);

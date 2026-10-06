@@ -34,7 +34,7 @@ interface AgentConfig {
  */
 export class MemoryBankSync {
     private workspacePath: string;
-    private mcpDataPath: string;
+    private mcpDataPath: string | null;
 
     // Multi-agent configuration
     private agents: AgentConfig[] = [
@@ -76,9 +76,10 @@ export class MemoryBankSync {
         }
     ];
 
-    constructor(workspacePath: string, mcpDataPath: string = '.agentMemory') {
+    constructor(workspacePath: string, mcpDataPath: string | null = '.agentMemory') {
         this.workspacePath = workspacePath;
-        this.mcpDataPath = path.join(workspacePath, mcpDataPath);
+        // null = pas de miroir local (mode unifié : le store global fait foi)
+        this.mcpDataPath = mcpDataPath === null ? null : path.join(workspacePath, mcpDataPath);
     }
 
     /**
@@ -410,6 +411,7 @@ ${memory.content}
      * Save memory to MCP storage
      */
     private async saveMCPMemory(memory: Memory): Promise<void> {
+        if (!this.mcpDataPath) return;
         await fs.mkdir(this.mcpDataPath, { recursive: true });
 
         const filename = `${memory.id}.json`;
