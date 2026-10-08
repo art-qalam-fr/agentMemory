@@ -14,7 +14,6 @@ Memory Access:
 - **Global** : Read Architectural Decisions (ADR) et standards transversaux.
 
 Tools:
-sequentialthinking
 sqlite-node
 mermaid-expert
 search_codebase

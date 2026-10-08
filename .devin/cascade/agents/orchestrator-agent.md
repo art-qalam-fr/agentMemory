@@ -16,6 +16,5 @@ read/write graph memory
 Tools:
 orchestrator-mcp
 todo_list
-sequentialthinking
 dispatching-parallel-agents
 loki-mode
